@@ -16,11 +16,13 @@
         <!-- Navbar -->
         {% include 'accounts/navbar.html' %}
 
-        {% block main %}
+    
+        {% block content %}
         {% endblock %}
+        
 
         <!-- Footer -->
-        <h5>Footer</h5>
+        {% include 'accounts/footer.html' %}
 
     <!-- Optional JavaScript Bundled -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
