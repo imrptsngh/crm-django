@@ -11,9 +11,16 @@ class Customer(models.Model):
         return self.name
 
 class Product(models.Model):
+    category = (
+        ('Laptops', 'Laptops'),
+        ('SmartWatches', 'SmartWatches'),
+        ('Mobiles', 'Mobiles'),
+        ('Tablets', 'Tablets'),
+        ('Gaming', 'Gaming'),
+    )
     name = models.CharField(max_length=100, null=True)
     price = models.FloatField(null=True)
-    category = models.CharField(max_length=100, null=True)
+    category = models.CharField(max_length=100, null=True, choices=category)
     description = models.TextField(max_length=250, null=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
 
@@ -29,4 +36,4 @@ class Order(models.Model):
     # customer = 
     # product = 
     date_created = models.DateTimeField(auto_now_add=True, null=True)
-    status = models.CharField(max_length=100, null=True)
+    status = models.CharField(max_length=100, null=True, choices=status)
