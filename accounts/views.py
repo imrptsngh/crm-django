@@ -4,7 +4,14 @@ from .models import *
 
 # Create your views here.
 def home(request):
-    return render(request, "accounts/dashboard.html")
+    customers = Customer.objects.all()
+    orders = Order.objects.all()
+    context = {
+        "customers": customers,
+        "orders": orders,
+    }
+
+    return render(request, "accounts/dashboard.html", context)
 
 
 def product(request):
