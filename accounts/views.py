@@ -35,7 +35,8 @@ def customer(request, pk):
     context = {'customer': customer, 'orders': orders, 'orders_count': orders_count}
     return render(request, "accounts/customer.html", context)
 
-def createOrder(request):
+def createOrder(request,pk):
+    customer = Customer.objects.get(id=pk)
     form = OrderForm()
     context = {
         'form': form
