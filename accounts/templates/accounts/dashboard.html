@@ -46,8 +46,8 @@
                     <td>{{ o.product.name }}</td>
                     <td>{{ o.date_created }}</td>
                     <td>{{ o.status }}</td>
-                    <td><a class= "btn btn-sm btn-primary" href = '{% url 'update_order' o.id %}'>Update</td>
-                    <td><a class= "btn btn-sm btn-danger" href = ''>Delete</td>
+                    <td><a class= "btn btn-sm btn-primary" href = "{% url 'update_order' o.id %}">Update</td>
+                    <td><a class= "btn btn-sm btn-danger" href = "{% url 'delete_order' o.id %}">Delete</td>
                 </tr>
                 {% endfor %}
 
