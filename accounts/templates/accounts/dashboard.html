@@ -17,8 +17,9 @@
                 </tr>
                 {% for c in customers %}
                     <tr>
-                        <td>{{ c.name }}</td>
+                        <td><a href="{% url 'customer' c.id %}"> {{ c.name }} </a></td>
                         <td>{{ c.phone }}</td>
+                        <td><a class= "btn btn-sm btn-primary" href = "{% url 'customer' c.id %}">View</td>
                     </tr>
                 {% endfor %}
 
@@ -30,7 +31,7 @@
         <h5>LAST 5 ORDERS</h5>
         <hr>
         <div class="card card-body">
-            <a class="btn btn-primary  btn-sm btn-block" href="">Create Order</a>
+            <a class="btn btn-primary  btn-sm btn-block" href="{% url 'create_order' %}">Create Order</a>
             <table class="table table-sm">
                 <tr>
                     <th>Product</th>
@@ -45,8 +46,8 @@
                     <td>{{ o.product.name }}</td>
                     <td>{{ o.date_created }}</td>
                     <td>{{ o.status }}</td>
-                    <td><a href = ''>Update</td>
-                    <td><a href = ''>Delete</td>
+                    <td><a class= "btn btn-sm btn-primary" href = "{% url 'update_order' o.id %}">Update</td>
+                    <td><a class= "btn btn-sm btn-danger" href = "{% url 'delete_order' o.id %}">Delete</td>
                 </tr>
                 {% endfor %}
 
