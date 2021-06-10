@@ -49,6 +49,6 @@ def updateOrder(request, pk):
         form = OrderForm(request.POST, instance=order)
         if form.is_valid():
             form.save()
-            return redirect('/')
+            return redirect('home')
     
     return render(request, "accounts/order_form.html", context)
