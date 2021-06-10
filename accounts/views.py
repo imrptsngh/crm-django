@@ -6,10 +6,18 @@ from .forms import OrderForm
 # Create your views here.
 def home(request):
     customers = Customer.objects.all()
+    total_customers = Customer.objects.all().count()
     orders = Order.objects.all()
+    total_orders = Order.objects.all().count()
+    orders_delivered = Order.objects.filter(status='Delivered').count()
+    orders_pending = Order.objects.filter(status='Pending').count()
     context = {
         "customers": customers,
+        "total_customers": total_customers,
         "orders": orders,
+        "total_orders": total_orders,
+        "orders_delivered": orders_delivered,
+        "orders_pending": orders_pending,
     }
 
     return render(request, "accounts/dashboard.html", context)
