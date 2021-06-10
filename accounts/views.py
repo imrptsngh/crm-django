@@ -37,7 +37,7 @@ def customer(request, pk):
 
 def createOrder(request,pk):
     customer = Customer.objects.get(id=pk)
-    form = OrderForm()
+    form = OrderForm(initial={'customer':customer})
     context = {
         'form': form
     }
