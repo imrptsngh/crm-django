@@ -40,6 +40,10 @@ INSTALLED_APPS = [
 
     ##User Created Apps
     'accounts',
+
+    #Third-Party Apps
+    'django_filters'
+
 ]
 
 MIDDLEWARE = [
